@@ -25,6 +25,21 @@ my $wiz = wizard data => sub { $_[1] },
 
 {
   warn "Stanza 2\n";
+
+  my %foo;
+  
+  my $foo = \%foo;
+  
+  cast $foo, $wiz, '$foo';
+
+  cast %foo, $wiz, '%foo';
+  
+  bless($foo, 'Foo');
+
+}
+
+{
+  warn "Stanza 3\n";
   
   my $foo = do {
     my %foo;
